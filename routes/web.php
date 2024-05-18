@@ -20,7 +20,7 @@ Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/miembros' [MiembroController::class], 'index');
+Route::get('/miembros', [MiembroController::class, 'index']);
 
 // Route::get('/miembros', function(){
     // return view('layouts.miembros.index');})->middleware('auth');
