@@ -19,6 +19,7 @@ Route::get('/', function () {return view('index');})->middleware('auth');
 Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
 
 Route::get('/miembros', [MiembroController::class, 'index']);
 
