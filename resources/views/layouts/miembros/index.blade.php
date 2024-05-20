@@ -4,6 +4,17 @@
 <div class="content" style="margin-left: 10px">
     <h1>Listado de miembro</h1>
 
+
+    @if ($message = Session::get('mensaje'))
+        <script>
+            Swal.fire({
+                title: "Buen trabajo",
+                text: "{{ $message }}",
+                icon: "success"
+            });
+        </script>
+    @endif
+
     <div class="row">
         <div class="col-md-12">
             <div class="card card-outline card-primary">

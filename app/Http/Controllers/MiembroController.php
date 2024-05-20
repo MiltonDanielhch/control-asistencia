@@ -20,6 +20,15 @@ class MiembroController extends Controller
         // $miembro = request()->all();
         // return response()->json($miembro);
 
+        $request->validate([
+            'nombre_apellido' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'fecha_nacimiento' => 'required',
+            'email' => 'required',
+            'ministerio' => 'required',
+        ]);
+
         $miembro = new Miembro();
 
         $miembro->nombre_apellido = $request->nombre_apellido;
@@ -31,10 +40,13 @@ class MiembroController extends Controller
         $miembro->estado = '1';
         $miembro->ministerio = $request->ministerio;
         //$miembro->fotografia = $request->fotografia;
-        $miembro->fotografia = $request->file('fotografia')->store('fotografias_miembros', 'public');
+        if($request->hasFile('fotografia')){
+            $miembro->fotografia = $request->file('fotografia')->store('fotografias_miembros', 'public');
+        }
         $miembro->fecha_ingreso = '2024-05-24';
 
         $miembro->save();
 
+        return redirect()->route('miembros.index')->with('mensaje', 'se registro al miembro de la manera correcta');
     }
 }

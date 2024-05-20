@@ -25,6 +25,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- JQuery -->
     <script src="{{ url('/plugins/jquery/jquery.js') }}"></script>
 
+    <!--sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('dist/css/adminlte.min.css') }}">
 </head>
