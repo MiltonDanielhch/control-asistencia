@@ -13,38 +13,39 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url('/miembro') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('/miembros') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Nombres y Apellidos</label><b>*</b>
-                                            <input type="text" class="form-control" required>
+                                            <input type="text" name="nombre_apellido"  class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Email</label><b>*</b>
-                                            <input type="email" class="form-control" required>
+                                            <input type="email" name="email" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Telefono</label><b>*</b>
-                                            <input type="number" class="form-control" required>
+                                            <input type="number"name="telefono" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Fecha de Nacimiento</label><b>*</b>
-                                            <input type="date" class="form-control" required>
+                                            <input type="date" name="fecha_nacimiento" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Género</label>
-                                            <select name="" id="" class="form-control">
+                                            <select name="genero" id="" class="form-control">
                                                 <option value="MASCULINO">MASCULINO</option>
                                                 <option value="FEMENINO">FEMENINO</option>
                                             </select>
@@ -53,13 +54,13 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Ministerio</label><b>*</b>
-                                            <input type="text" class="form-control" required>
+                                            <input type="text" name= "ministerio" form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Dirección</label><b>*</b>
-                                            <input type="text" class="form-control" required>
+                                            <input type="text" name="direccion" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +68,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Fotografia</label>
-                                    <input type="file" name="" id="file" class="form-control"><br>
+                                    <input type="file" name="fotografia" id="file" class="form-control"><br>
                                     <center><output id="list"></output></center>
                                     <script>
                                         function archivo(evt){
@@ -91,8 +92,6 @@
                                         }
                                         document.getElementById('file').addEventListener('change',archivo, false);
                                     </script>
-
-
                                 </div>
                             </div>
                         </div>
