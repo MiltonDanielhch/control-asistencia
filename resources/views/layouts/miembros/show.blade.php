@@ -87,7 +87,7 @@
                                 @endif
                                 @else
                                 <center>
-                                    <img src="{{url('storage').'/'.$miembro->fotografia}}" width="150px" alt="a">
+                                    <img src="{{url('storage').'/'.$miembro->fotografia}}" width="150px" alt="">
                                 </center>
                                 @endif
                             </div>
