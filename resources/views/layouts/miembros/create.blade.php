@@ -27,25 +27,25 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Nombres y Apellidos</label><b>*</b>
-                                            <input type="text" name="nombre_apellido"  class="form-control" required >
+                                            <input type="text" name="nombre_apellido" value="{{ old('nombre_apellido') }}"  class="form-control" required >
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Email</label><b>*</b>
-                                            <input type="email" name="email" class="form-control" required>
+                                            <input type="email" name="email" value="{{ old('email') }}" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Telefono</label><b>*</b>
-                                            <input type="number"name="telefono" class="form-control" required>
+                                            <input type="number"name="telefono" value= "{{ old('telefono') }}"" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Fecha de Nacimiento</label><b>*</b>
-                                            <input type="date" name="fecha_nacimiento" class="form-control" required>
+                                            <input type="date" name="fecha_nacimiento" value=" {{ old('fecha_nacimiento') }} " class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -60,13 +60,13 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Ministerio</label><b>*</b>
-                                            <input type="text" name= "ministerio" form-control" required>
+                                            <input type="text" name= "ministerio" value="{{ old('ministerio') }}" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Dirección</label><b>*</b>
-                                            <input type="text" name="direccion" class="form-control" required>
+                                            <input type="text" name="direccion" value="{{ old('direccion') }}" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>

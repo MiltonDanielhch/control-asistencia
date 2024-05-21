@@ -94,14 +94,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <a href="" class="btn btn-secondary">Cancelar</a>
-                                <button type="submit" class="btn btn-primary">Guardar Registro</button>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
