@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="">Fotografia</label>
+                                <label for="">Fotografia</label><br>
                                 @if($miembro->fotografia == '')
                                     @if($miembro->genero == 'MASCULINO')
                                         <img src="{{url('images/avatar-hombre.jpg')}}" width="150px" alt="">

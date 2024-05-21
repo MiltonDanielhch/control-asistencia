@@ -92,7 +92,7 @@
                                         <output id="list">
                                             @if($miembro->fotografia == '')
                                                 @if($miembro->genero == 'MASCULINO')
-                                                    <img src="{{asset('images/avatar-hombre.jpg')}}" width="150px" alt="">
+                                                    <img src="{{url('images/avatar-hombre.jpg')}}" width="150px" alt="">
                                                 @else
                                                     <img src="{{url('images/avatar-mujer.jpg')}}" width="150px" alt="">
                                             @endif

@@ -16,13 +16,14 @@ class MiembroFactory extends Factory
      */
     public function definition(): array
     {
+        $gender = $this->faker->randomElement(['MASCULINO', 'FEMENINO']);
         return [
-            'nombre_apellido' => Str::random(10),
-            'direccion' => Str::random(10),
+            'nombre_apellido' => fake()->name,
+            'direccion' => fake()->address,
             'telefono' => random_int(7000000000, 7999999999),
-            'fecha_nacimiento' => '2000-12-12',
-            'genero' => 'masculino',
-            'email' => Str::random(10).'@gmail.com',
+            'fecha_nacimiento' => fake()->date($format='Y-m-d', $max='now'),
+            'genero' => $gender,
+            'email' => fake()->unique()->safeEmail(),
             'estado' => '1',
             'ministerio' => 'pastoral',
             'fotografia' => 'milton.jpg',
