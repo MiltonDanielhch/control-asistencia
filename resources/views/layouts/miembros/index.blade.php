@@ -60,7 +60,14 @@
                                 <td>{{ $miembro->email }}</td>
                                 <td>{{ $miembro->estado }}</td>
                                 <td>{{ $miembro->fecha_ingreso }}</td>
-                                <td></td>
+                                <td style="text-align: center;">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{{ url('miembros', $miembro->id) }}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                        <a href="{{ route('miembros.edit', $miembro->id) }}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                        <a href="" type="button" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

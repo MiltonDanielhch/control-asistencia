@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MiembroController extends Controller
 {
     public function index(){
-        $miembros = Miembro::all();
+        $miembros = Miembro::all()->sortByDesc('id');
         return view('layouts.miembros.index', compact('miembros'));
     }
     public function create()
@@ -48,5 +48,17 @@ class MiembroController extends Controller
         $miembro->save();
 
         return redirect()->route('miembros.index')->with('mensaje', 'se registro al miembro de la manera correcta');
+    }
+    public function show($id){
+        $miembro = Miembro::findOrFail($id);
+
+        // return response()->json($miembro);
+        return view ('layouts.miembros.show', compact('miembro'));
+    }
+    public function edit($id){
+        $miembro = Miembro::findOrFail($id);
+
+        // return response()->json ($miembro);
+        return view('layouts.miembros.edit', compact('miembro'));
     }
 }

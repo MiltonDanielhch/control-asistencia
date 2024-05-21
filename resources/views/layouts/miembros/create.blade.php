@@ -27,7 +27,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Nombres y Apellidos</label><b>*</b>
-                                            <input type="text" name="nombre_apellido"  class="form-control" >
+                                            <input type="text" name="nombre_apellido"  class="form-control" required >
                                         </div>
                                     </div>
                                     <div class="col-md-3">
