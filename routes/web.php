@@ -3,7 +3,7 @@
 use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\MinisterioController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('index');})->middleware('auth');
+Route::get('/', [AdminController::class, 'index'])->middleware('auth');
 
 Auth::routes(['register'=>false]);
 

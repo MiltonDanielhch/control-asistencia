@@ -207,29 +207,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon bi bi-person-add"></i>
-                                <p>
-                                    Miembros
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ url('miembros/create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Nuevo Miembro</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('miembros') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Listado de Miembros</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
 
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
@@ -254,6 +231,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon bi bi-person-add"></i>
+                                <p>
+                                    Miembros
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('miembros/create') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Nuevo Miembro</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('miembros') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Listado de Miembros</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -331,7 +334,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ url('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
 </body>
+
 </html>
-
-
-
