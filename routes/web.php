@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MiembroController;
+use App\Http\Controllers\MinisterioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->n
 
 Route::resource('/miembros', MiembroController::class);
 
+Route::resource('/ministerios', MinisterioController::class);
 
 // Route::get('/miembros', [MiembroController::class, 'index']);
 

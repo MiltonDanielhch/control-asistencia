@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content" style="margin-left: 10px">
-    <h1>Listado de miembro</h1>
+    <h1>Listado de ministerios</h1>
 
 
     @if ($message = Session::get('mensaje'))
@@ -19,10 +19,10 @@
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Miembros Registrados</b></h3>
+                    <h3 class="card-title"><b>ministerios Registrados</b></h3>
                     <div class="card-tools">
-                        <a href="{{ url('/miembros/create') }}" class="btn btn-primary">
-                            <i class="bi bi-file-plus"></i>Agregar nuevo miembro
+                        <a href="{{ url('/ministerios/create') }}" class="btn btn-primary">
+                            <i class="bi bi-file-plus"></i>Agregar nuevo ministerio
                         </a>
                     </div>
                 </div>
@@ -35,11 +35,10 @@
                         <thead>
                             <tr>
                                 <th>Nro</th>
-                                <th>Nombre y Apellido</th>
-                                <th>Teléfono</th>
-                                <th>Email</th>
+                                <th>Nombre del Ministerio</th>
+                                <th>Descripción</th>
                                 <th>Estado</th>
-                                <th>Agregado</th>
+                                <th>Fecha de Ingreso</th>
                                 <th>Accion</th>
                             </tr>
                         </thead>
@@ -48,26 +47,26 @@
                             $contador = 0;
                             @endphp
 
-                            @foreach ($miembros as $miembro)
+                            @foreach ($ministerios as $ministerio)
                             <tr>
                                 <td>
                                     @php
                                     echo $contador = $contador + 1;
                                     @endphp
                                 </td>
-                                <td>{{ $miembro->nombre_apellido }}</td>
-                                <td>{{ $miembro->telefono }}</td>
-                                <td>{{ $miembro->email }}</td>
+                                <td>{{ $ministerio->nombre_ministerio }}</td>
+                                <td>{!!$ministerio->descripcion !!}</td>
+
                                 <td style="text-align:center">
                                     <button class="btn btn-success btn-sm" style="border-radius:20px">Activo</button>
                                 </td>
-                                <td>{{ $miembro->fecha_ingreso }}</td>
+                                <td>{{ $ministerio->fecha_ingreso }}</td>
                                 <td style="text-align: center;">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="{{ url('miembros', $miembro->id) }}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
-                                        <a href="{{ route('miembros.edit', $miembro->id) }}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                        <a href="{{ url('ministerios', $ministerio->id) }}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                        <a href="{{ route('ministerios.edit', $ministerio->id) }}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
 
-                                        <form action="{{ url('miembros', $miembro->id) }}" method="post">
+                                        <form action="{{ url('ministerios', $ministerio->id) }}" method="post">
                                             @csrf
                                             {{ method_field('DELETE') }}
                                             <button type="submit" class="btn btn-danger">
@@ -87,12 +86,12 @@
                                     "pageLength": 10,
                                     "language": {
                                         "emptyTable": "No hay información",
-                                        "info": "Mostrando START a END de TOTAL Miembros",
-                                        "infoEmpty": "Mostrando 0 a 0 de 0 Miembros",
-                                        "infoFiltered": "(Filtrado de MAX total Miembros)",
+                                        "info": "Mostrando START a END de TOTAL Ministerios",
+                                        "infoEmpty": "Mostrando 0 a 0 de 0 Ministerios",
+                                        "infoFiltered": "(Filtrado de MAX total Ministerios)",
                                         "infoPostFix": "",
                                         "thousands": ",",
-                                        "lengthMenu": "Mostrar_MENU_Miembros",
+                                        "lengthMenu": "Mostrar_MENU_Ministerios",
                                         "loadingRecords": "Cargando...",
                                         "processing": "Procesando...",
                                         "search": "Buscador:",
