@@ -4,6 +4,8 @@ use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\MinisterioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [AdminController::class, 'index'])->middleware('auth');
 
-Auth::routes(['register'=>false]);
+Auth::routes(['register'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
@@ -26,6 +28,8 @@ Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->n
 Route::resource('/miembros', MiembroController::class);
 
 Route::resource('/ministerios', MinisterioController::class);
+
+Route::resource('/usuarios', UserController::class);
 
 // Route::get('/miembros', [MiembroController::class, 'index']);
 
