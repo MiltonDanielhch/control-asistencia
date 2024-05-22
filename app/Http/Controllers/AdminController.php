@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asistencia;
 use App\Models\Miembro;
 use Illuminate\Http\Request;
 use App\Models\Ministerio;
@@ -13,6 +14,7 @@ class AdminController extends Controller
         $miembros = Miembro::all();
         $ministerios = Ministerio::all();
         $usuarios = User::all();
-        return view('index', compact('ministerios', 'miembros', 'usuarios'));
+        $asistencias = Asistencia::all();
+        return view('index', compact('ministerios', 'miembros', 'usuarios', 'asistencias'));
     }
 }

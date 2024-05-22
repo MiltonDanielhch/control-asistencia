@@ -4,6 +4,7 @@ use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\MinisterioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -30,6 +31,8 @@ Route::resource('/miembros', MiembroController::class);
 Route::resource('/ministerios', MinisterioController::class);
 
 Route::resource('/usuarios', UserController::class);
+
+Route::resource('/asistencias', AsistenciaController::class);
 
 // Route::get('/miembros', [MiembroController::class, 'index']);
 
