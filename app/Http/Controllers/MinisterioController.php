@@ -49,32 +49,46 @@ class MinisterioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Ministerio $ministerio)
+    public function show($id)
     {
-        //
+        $ministerio = Ministerio::findOrFail($id);
+        return view('layouts.ministerios.show',['ministerio'=>$ministerio]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ministerio $ministerio)
+    public function edit($id)
     {
-        //
+        $ministerio = Ministerio::findOrFail($id);
+        return view('layouts.ministerios.edit',['ministerio'=>$ministerio]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ministerio $ministerio)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nombre_ministerio'=>'required',
+            'fecha_ingreso'=>'required',
+        ]);
+
+        $ministerio = Ministerio::find($id);
+        $ministerio->nombre_ministerio = $request->nombre_ministerio;
+        $ministerio->descripcion = $request->descripcion;
+        $ministerio->fecha_ingreso = $request->fecha_ingreso;
+        $ministerio->save();
+
+        return redirect()->route('ministerios.index')->with('mensaje','Se actualizo el ministerio de la manera correcta');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ministerio $ministerio)
+    public function destroy($id)
     {
-        //
+        Ministerio::destroy($id);
+        return redirect()->route('ministerios.index')->with('mensaje','Se elimino el ministerio de la manera correcta');
     }
 }
