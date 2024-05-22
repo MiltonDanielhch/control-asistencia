@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     /**
@@ -21,15 +22,33 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.usuarios.create');
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
+
+     protected function validator(array $data)
+     {
+         return Validator::make($data, [
+             'name' => ['required', 'string', 'max:255'],
+             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+             'password' => ['required', 'string', 'min:8', 'confirmed'],
+         ]);
+     }
     public function store(Request $request)
     {
-        //
+        $usuario = new User();
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request['password']);
+        $usuario->fecha_ingreso = date($format = 'Y-m-d');
+        $usuario->estado = '1';
+        $usuario->save();
+
+        return redirect()->route('usuarios.index')->with('mensaje','Se registro el usuarios de la manera correcta');
     }
 
     /**
@@ -37,15 +56,17 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        return view ('layouts.usuarios.show',['usuario'=>$usuario]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        return view ('layouts.usuarios.edit',['usuario'=>$usuario]);
     }
 
     /**
@@ -53,7 +74,13 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request['password']);
+        $usuario->save();
+
+        return redirect()->route('usuarios.index')->with('mensaje','Se actualizao el usuarios de la manera correcta');
     }
 
     /**
@@ -61,6 +88,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::destroy($id);
+        return redirect()->route('usuarios.index')->with('mensaje','Se elimino el usuario de la manera correcta');
     }
 }
