@@ -19,10 +19,13 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes']);
+Route::get('/asistencias/pdf', [AsistenciaController::class, 'pdf']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes(['register'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
 
 

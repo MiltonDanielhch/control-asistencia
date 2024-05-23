@@ -9,6 +9,8 @@ use App\Http\Requests\AsistenciaRequest;
 use App\Models\Miembro;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Symfony\Component\Console\Input\Input;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AsistenciaController extends Controller
 {
@@ -21,6 +23,18 @@ class AsistenciaController extends Controller
 
         return view('asistencia.index', compact('asistencias'))
             ->with('i', ($request->input('page', 1) - 1) * $asistencias->perPage());
+    }
+
+    public function reportes(){
+        return view('asistencia.report');
+    }
+
+    public function pdf(Request $request){
+        $asistencias = Asistencia::paginate();
+        $pdf = Pdf::loadView('asistencia.pdf', ['asistencias'=> $asistencias]);
+        return $pdf->stream();
+        // return view('asistencia.pdf', compact('asistencias'))
+            // ->with('i', ($request->input('page', 1) - 1) * $asistencias->perPage());
     }
 
     /**
