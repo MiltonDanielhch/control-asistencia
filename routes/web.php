@@ -18,10 +18,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [AdminController::class, 'index'])->middleware('auth');
-Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes']);
-Route::get('/asistencias/pdf', [AsistenciaController::class, 'pdf']);
-Route::get('/asistencias/pdf_fechas', [AsistenciaController::class, 'pdf_fechas']);
+Route::get('/', [AdminController::class, 'index'])->middleware('auth')->name('index');
+Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes'])->name('asistencias.reportes');
+Route::get('/asistencias/pdf', [AsistenciaController::class, 'pdf'])->name('asistencias.pdf');
+Route::get('/asistencias/pdf_fechas', [AsistenciaController::class, 'pdf_fechas'])->name('asistencias.pdf_fechas');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes(['register'=>true]);
@@ -30,13 +30,10 @@ Auth::routes(['register'=>true]);
 Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
 
 
-Route::resource('/miembros', MiembroController::class);
-
-Route::resource('/ministerios', MinisterioController::class);
-
-Route::resource('/usuarios', UserController::class);
-
-Route::resource('/asistencias', AsistenciaController::class);
+Route::resource('/miembros', MiembroController::class)->names('miembros');
+Route::resource('/ministerios', MinisterioController::class)->names('ministerios');
+Route::resource('/usuarios', UserController::class)->names('usuarios');
+Route::resource('/asistencias', AsistenciaController::class)->names('asistencias');
 
 // Route::get('/miembros', [MiembroController::class, 'index']);
 
