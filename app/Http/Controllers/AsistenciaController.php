@@ -36,6 +36,17 @@ class AsistenciaController extends Controller
         // return view('asistencia.pdf', compact('asistencias'))
             // ->with('i', ($request->input('page', 1) - 1) * $asistencias->perPage());
     }
+    public function pdf_fechas(Request $request){
+        $fi = $request->fi;
+        $ff = $request->ff;
+
+        $asistencias = Asistencia::where('fecha', '>=', $fi)->where('fecha', '<=', $ff)->get();
+
+        $pdf = Pdf::loadView('asistencia.pdf', ['asistencias'=> $asistencias]);
+        return $pdf->stream();
+
+        //return view('asistencia.pdf_fechas', compact('asistencias'));
+    }
 
     /**
      * Show the form for creating a new resource.

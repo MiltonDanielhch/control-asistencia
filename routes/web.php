@@ -21,6 +21,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [AdminController::class, 'index'])->middleware('auth');
 Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes']);
 Route::get('/asistencias/pdf', [AsistenciaController::class, 'pdf']);
+Route::get('/asistencias/pdf_fechas', [AsistenciaController::class, 'pdf_fechas']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes(['register'=>true]);
